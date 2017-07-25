@@ -13,4 +13,4 @@ Install vi - To be Done <br />
 Install git - To be Done <br />
 Reomve wolfram-engine to save space - To be Done <br />
 Change ssh port - To be Done <br />
-Configure NTP server - To be Done <br />
+Set local timezone to CEST - To be Done <br />
