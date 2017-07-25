@@ -1,6 +1,5 @@
 # ansible
-Contains my ansible codes
-The ansible codes are designed for automatic setup of Raspberry Pi 3 from scratch. 
+The ansible codes are designed for automatic setup of Raspberry Pi 3 from scratch. <br /> 
 Things to do:
 
 Install Docker - Done <br />
