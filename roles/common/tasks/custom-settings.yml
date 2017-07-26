@@ -18,7 +18,6 @@
     name: dnsutils
     state: present
 
-
 - name: Install vim package
   apt:
     name: vim
