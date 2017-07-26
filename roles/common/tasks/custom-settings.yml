@@ -1,8 +1,57 @@
 ---
 
+# Set local timezone
+#-------------------
+
 - name: Set timezone to CEST 
   timezone:
     name: Europe/Amsterdam
   notify:
     - restart cron
 
+
+# Install OS utilities
+#---------------------
+
+- name: Install dnsutils package
+  apt:
+    name: dnsutils
+    state: present
+
+
+- name: Install vim package
+  apt:
+    name: vim
+    state: present
+	
+
+- name: Install git package
+  apt:
+    name: git
+    state: present
+	
+
+- name: Install tree package
+  apt:
+    name: tree
+    state: present
+
+
+# Remove OS utilities
+#--------------------
+
+- name: Remove wolfram-engine package
+  apt:
+    name: wolfram-engine
+    state: absent	
+	purge: yes
+	autoremove: yes
+
+
+# Run apt update cache
+#---------------------
+
+- name: Only run "update_cache=yes" if the last one is more than 3600 seconds ago
+  apt:
+    update_cache: yes
+    cache_valid_time: 3600

@@ -1,6 +1,3 @@
 ---
 
-
-- include: playbooks/docker-setup.yml
-
-- include: playbooks/custom-setup.yml 
+- include: custom-setup.yml 
