@@ -1,0 +1,7 @@
+/home/pi/logs/ansible.log {
+  size 10000k 
+  compress
+  rotate 2 
+  missingok
+}
+

@@ -1,17 +1,18 @@
 # ansible
 The ansible codes are designed for automatic setup of Raspberry Pi 3 from scratch. <br /> 
-Things done: <br />
-Install Docker - Done <br />
-Set local timezone to CEST - Done <br />
+Things Done: <br />
+Install Docker <br />
+Set local timezone to CEST <br />
+Install tree <br />
+Install dnsutils <br />
+Install vi <br />
+Install git <br />
+Reomve wolfram-engine to save disk space <br />
 
-Things to do: <br />
-Install Nodejs - To be Done <br />
-Install Virtualenv for Python - To be Done <br />
-Install tree - To be Done <br />
-Install dnsutils - To be Done <br />
-Install tightvnc-server - To be Done <br />
-Install vi - To be Done <br />
-Install git - To be Done <br />
-Reomve wolfram-engine to save space - To be Done <br />
-Change ssh port - To be Done <br />
+
+Things to Do: <br />
+Install Nodejs <br />
+Install Virtualenv for Python <br />
+Install tightvnc-server <br />
+Change ssh port <br />
 
