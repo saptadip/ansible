@@ -23,13 +23,11 @@
   apt:
     name: vim
     state: present
-	
 
 - name: Install git package
   apt:
     name: git
     state: present
-	
 
 - name: Install tree package
   apt:
@@ -44,8 +42,8 @@
   apt:
     name: wolfram-engine
     state: absent	
-	purge: yes
-	autoremove: yes
+    purge: yes
+    autoremove: yes
 
 
 # Run apt update cache
