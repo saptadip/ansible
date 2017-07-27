@@ -2,7 +2,7 @@
 
 # Set local timezone
 #-------------------
-- name: Set timezone to CEST 
+- name: set timezone to CEST 
   timezone:
     name: Europe/Amsterdam
   notify:
@@ -11,22 +11,22 @@
 
 # Install OS utilities
 #---------------------
-- name: Install dnsutils package
+- name: install dnsutils package
   apt:
     name: dnsutils
     state: present
 
-- name: Install vim package
+- name: install vim package
   apt:
     name: vim
     state: present
 
-- name: Install git package
+- name: install git package
   apt:
     name: git
     state: present
 
-- name: Install tree package
+- name: install tree package
   apt:
     name: tree
     state: present
@@ -34,7 +34,7 @@
 
 # Remove OS utilities
 #--------------------
-- name: Remove wolfram-engine package
+- name: remove wolfram-engine package
   apt:
     name: wolfram-engine
     state: absent	
@@ -44,7 +44,7 @@
 
 # Run apt update cache
 #---------------------
-- name: Only run "update_cache=yes" if the last one is more than 3600 seconds ago
+- name: only run "update_cache=yes" if the last one is more than 3600 seconds ago
   apt:
     update_cache: yes
     cache_valid_time: 3600
@@ -52,7 +52,7 @@
 
 # Set log rotation of ansible.log file
 #-------------------------------------
-- name: "Set log rotation of playbook exec log"
+- name: set log rotation of playbook exec log
   copy:
     src: ansible 
     dest: /etc/logrotate.d 
@@ -63,7 +63,7 @@
 # Customize bashrc file of 'pi' user
 #-----------------------------------
 # * Set history command to display date time format
-- name: "Set profile for user pi"
+- name: set profile for user pi
   remote_user: pi
   copy:
     src: .bashrc 

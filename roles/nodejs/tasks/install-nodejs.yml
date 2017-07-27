@@ -1,0 +1,15 @@
+---
+
+- name: download nodejs setup installer 
+  get_url:
+    url: https://deb.nodesource.com/setup_{{ nodejs_version }}.x
+    dest: /tmp/
+    mode: 0755
+
+- name: install nodejs setup installer
+  script: /tmp/setup_{{ nodejs_version }}.x
+
+- name: install nodejs
+  apt:
+    name: nodejs
+    state: present

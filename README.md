@@ -6,13 +6,13 @@ Install vi <br />
 Install git <br />
 Install tree <br />
 Install Docker <br />
+Install Nodejs <br />
 Install dnsutils <br />
 Set local timezone to CEST <br />
 Set history command to display date time format <br />
 Reomve wolfram-engine package to save disk space <br />
 <br />Things to Do: <br />
 --------------<br />
-Install Nodejs <br />
 Change ssh port <br />
 Install tightvnc-server <br />
 Install Virtualenv for Python <br />
