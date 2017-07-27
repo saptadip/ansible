@@ -58,3 +58,14 @@
     dest: /etc/logrotate.d 
   notify:
     - run logrotate
+
+
+# Customize bashrc file of 'pi' user
+#-----------------------------------
+# * Set history command to display date time format
+- name: "Set profile for user pi"
+  remote_user: pi
+  copy:
+    src: .bashrc 
+    dest: /home/pi
+

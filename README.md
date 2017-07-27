@@ -8,6 +8,7 @@ Install tree <br />
 Install Docker <br />
 Install dnsutils <br />
 Set local timezone to CEST <br />
+Set history command to display date time format <br />
 Reomve wolfram-engine package to save disk space <br />
 <br />Things to Do: <br />
 --------------<br />
@@ -19,5 +20,5 @@ Install Virtualenv for Python <br />
 # Pre-requisite:
 - Hardware: Raspberry Pi 3
 - Operating System: Raspbian GNU/Linux 8 (jessie)
-- Software: Ansible
-- Others: Internet connectivity
+- Software: Ansible 2.3.1.0 or higher
+- Others: Stable internet connectivity
