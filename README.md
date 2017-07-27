@@ -1,5 +1,5 @@
 # Description
-The repository contains ansible codes for automatic setup of Raspberry Pi 3 running on Raspbian GNU/Linux 8 (jessie) image. <br />
+The repository contains ansible codes for automatic setup of Raspberry Pi 3 on Raspbian OS. <br />
 <br />Things Done: <br />
 --------------<br />
 Install vi <br />
@@ -18,6 +18,6 @@ Install Virtualenv for Python <br />
 
 # Pre-requisite:
 - Hardware: Raspberry Pi 3
-- Operating Syatem: Raspbian GNU/Linux 8 (jessie)
+- Operating System: Raspbian GNU/Linux 8 (jessie)
 - Software: Ansible
 - Others: Internet connectivity
