@@ -1,18 +1,23 @@
-# ansible
-The ansible codes are designed for automatic setup of Raspberry Pi 3 from scratch. <br /> 
-Things Done: <br />
-Install Docker <br />
-Set local timezone to CEST <br />
-Install tree <br />
-Install dnsutils <br />
+# Description
+The repository contains ansible codes for automatic setup of Raspberry Pi 3 running on Raspbian GNU/Linux 8 (jessie) image. <br />
+<br />Things Done: <br />
+--------------<br />
 Install vi <br />
 Install git <br />
-Reomve wolfram-engine to save disk space <br />
-
-
-Things to Do: <br />
+Install tree <br />
+Install Docker <br />
+Install dnsutils <br />
+Set local timezone to CEST <br />
+Reomve wolfram-engine package to save disk space <br />
+<br />Things to Do: <br />
+--------------<br />
 Install Nodejs <br />
-Install Virtualenv for Python <br />
-Install tightvnc-server <br />
 Change ssh port <br />
+Install tightvnc-server <br />
+Install Virtualenv for Python <br />
 
+# Pre-requisite:
+- Hardware: Raspberry Pi 3
+- Operating Syatem: Raspbian GNU/Linux 8 (jessie)
+- Software: Ansible
+- Others: Internet connectivity
