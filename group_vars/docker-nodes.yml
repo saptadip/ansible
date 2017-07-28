@@ -1,4 +1,26 @@
 ---
 
+# General variables
+#------------------
 local_timezone: "Europe/Amsterdam"
 nodejs_version: 7
+
+
+# Python packages to install
+#---------------------------
+pip_packages_to_install:
+  - virtualenv
+
+
+# OS packages to install with apt
+#--------------------------------
+apt_packages_to_install:
+  - dnsutils
+  - vim
+  - git
+  - tree
+
+# OS packages to uninstall
+#-------------------------
+apt_packages_to_uninstall:
+  - wolfram-engine

@@ -9,44 +9,26 @@
     - restart cron
 
 
-# Install OS utilities
-#---------------------
-- name: install dnsutils package
-  apt:
-    name: dnsutils
-    state: present
-
-- name: install vim package
-  apt:
-    name: vim
-    state: present
-
-- name: install git package
-  apt:
-    name: git
-    state: present
-
-- name: install tree package
-  apt:
-    name: tree
-    state: present
+# Install OS packages 
+#--------------------
+- name: "install apt packages: {{ apt_packages_to_install }}"
+  apt: name={{ item }} state=present
+  with_items: apt_packages_to_install
 
 
 # Install python packages
 #------------------------
-- name: install virtualenv for python
-  pip:
-    name: virtualenv
+- name: "install python packages: {{ pip_packages_to_install }}"
+  sudo: true
+  pip: name={{ item }}
+  with_items: pip_packages_to_install 
 
 
-# Remove OS utilities
-#--------------------
-- name: remove wolfram-engine package
-  apt:
-    name: wolfram-engine
-    state: absent	
-    purge: yes
-    autoremove: yes
+# Remove OS packages
+#-------------------
+- name: "remove apt packages: {{ apt_packages_to_uninstall }}"
+  apt: name={{ item }} state=absent purge=yes autoremove=yes
+  with_items: apt_packages_to_uninstall
 
 
 # Run apt update cache
