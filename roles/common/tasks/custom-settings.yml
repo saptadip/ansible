@@ -32,6 +32,13 @@
     state: present
 
 
+# Install python packages
+#------------------------
+- name: install virtualenv for python
+  pip:
+    name: virtualenv
+
+
 # Remove OS utilities
 #--------------------
 - name: remove wolfram-engine package
@@ -44,10 +51,10 @@
 
 # Run apt update cache
 #---------------------
-- name: only run "update_cache=yes" if the last one is more than 3600 seconds ago
+- name: update apt cache if it's 1 day old
   apt:
     update_cache: yes
-    cache_valid_time: 3600
+    cache_valid_time: 86400 
 
 
 # Set log rotation of ansible.log file
