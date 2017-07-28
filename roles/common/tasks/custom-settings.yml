@@ -4,7 +4,7 @@
 #-------------------
 - name: set timezone to CEST 
   timezone:
-    name: Europe/Amsterdam
+    name: {{ local_timezone }}
   notify:
     - restart cron
 
