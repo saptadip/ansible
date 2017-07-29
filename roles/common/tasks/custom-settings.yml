@@ -4,31 +4,31 @@
 #-------------------
 - name: set timezone to CEST 
   timezone:
-    name: {{ local_timezone }}
+    name: "{{ local_timezone }}"
   notify:
     - restart cron
 
 
 # Install OS packages 
 #--------------------
-- name: "install apt packages: {{ apt_packages_to_install }}"
+- name: "install apt packages: {{ apt_packages_to_install | to_yaml }}"
   apt: name={{ item }} state=present
-  with_items: apt_packages_to_install
+  with_items: "{{ apt_packages_to_install }}" 
 
 
 # Install python packages
 #------------------------
-- name: "install python packages: {{ pip_packages_to_install }}"
+- name: "install python packages: {{ pip_packages_to_install | to_yaml }}"
   sudo: true
   pip: name={{ item }}
-  with_items: pip_packages_to_install 
+  with_items: "{{ pip_packages_to_install }}"
 
 
 # Remove OS packages
 #-------------------
-- name: "remove apt packages: {{ apt_packages_to_uninstall }}"
+- name: "remove apt packages: {{ apt_packages_to_uninstall | to_yaml }}"
   apt: name={{ item }} state=absent purge=yes autoremove=yes
-  with_items: apt_packages_to_uninstall
+  with_items: "{{ apt_packages_to_uninstall }}"
 
 
 # Run apt update cache
