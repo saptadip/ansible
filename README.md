@@ -5,8 +5,9 @@ The repository contains ansible codes for automatic setup of Raspberry Pi 3 on R
 Install vi <br />
 Install git <br />
 Install tree <br />
-Install Docker <br />
-Install Nodejs <br />
+Install docker <br />
+Install nodejs <br />
+Install locate <br />
 Install dnsutils <br />
 Install tightvnc-server <br />
 Set local timezone to CEST <br />

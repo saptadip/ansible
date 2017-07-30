@@ -19,6 +19,7 @@ apt_packages_to_install:
   - git
   - tree
   - tightvncserver
+  - locate
 
 # OS packages to uninstall
 #-------------------------
