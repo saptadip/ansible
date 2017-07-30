@@ -2,7 +2,7 @@
 
 # Set local timezone
 #-------------------
-- name: set timezone to CEST 
+- name: "set timezone to: {{ local_timezone }}"
   timezone:
     name: "{{ local_timezone }}"
   notify:
@@ -37,13 +37,11 @@
 
 # Run OS package upgrade
 #-----------------------
-- name: update apt cache if it's 1 day old
+- name: update apt cache when older than 1 day
   apt:
+    upgrade: dist
     update_cache: yes
     cache_valid_time: 86400 
-
-- name: run apt upgrade
-  apt: upgrade=safe
 
 
 
