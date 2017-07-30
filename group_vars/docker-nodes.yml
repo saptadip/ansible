@@ -3,7 +3,6 @@
 # General variables
 #------------------
 local_timezone: "Europe/Amsterdam"
-nodejs_version: 7
 
 
 # Python packages to install
@@ -19,8 +18,20 @@ apt_packages_to_install:
   - vim
   - git
   - tree
+  - tightvncserver
 
 # OS packages to uninstall
 #-------------------------
 apt_packages_to_uninstall:
   - wolfram-engine
+
+
+# SSH server config parameters
+#-----------------------------
+permit_root_login_to: no
+allowed_ssh_users: pi
+
+
+# Install software versions
+#--------------------------
+nodejs_version: 7 

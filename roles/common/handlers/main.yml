@@ -5,3 +5,6 @@
 
 - name: run logrotate
   command: logrotate -f /etc/logrotate.conf
+
+- name: restart ssh
+  service: name=ssh state=restarted 

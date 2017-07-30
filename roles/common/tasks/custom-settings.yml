@@ -39,6 +39,25 @@
     cache_valid_time: 86400 
 
 
+# Customize ssh server config
+#----------------------------
+- name: "set root login to: {{ permit_root_login_to }}"
+  lineinfile:
+    path: /etc/ssh/sshd_config
+    state: present
+    regexp: '^PermitRootLogin'
+    line: 'PermitRootLogin {{ permit_root_login_to }}'
+  
+- name: "set allowed ssh users to: {{ allowed_ssh_users }}"
+  lineinfile:
+    path: /etc/ssh/sshd_config
+    state: present
+    regexp: '^AllowUsers'
+    line: 'AllowUsers {{ allowed_ssh_users }}'
+  notify:
+    - restart ssh
+
+
 # Set log rotation of ansible.log file
 #-------------------------------------
 - name: set log rotation of playbook exec log

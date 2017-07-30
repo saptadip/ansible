@@ -8,14 +8,14 @@ Install tree <br />
 Install Docker <br />
 Install Nodejs <br />
 Install dnsutils <br />
+Install tightvnc-server <br />
 Set local timezone to CEST <br />
 Install Virtualenv for Python <br />
 Set history command to display date time format <br />
 Reomve wolfram-engine package to save disk space <br />
+SSH config change: PermitRootLogin_NO, AllowUsers_pi <br />
 <br />Things to Do: <br />
 --------------<br />
-Change ssh port <br />
-Install tightvnc-server <br />
 
 # Pre-requisite:
 - Hardware: Raspberry Pi 3
