@@ -20,6 +20,7 @@ apt_packages_to_install:
   - tree
   - tightvncserver
   - locate
+  - dos2unix
 
 # OS packages to uninstall
 #-------------------------

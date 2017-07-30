@@ -9,6 +9,7 @@ Install docker <br />
 Install nodejs <br />
 Install locate <br />
 Install dnsutils <br />
+Install dos2unix <br />
 Install tightvnc-server <br />
 Set local timezone to CEST <br />
 Install Virtualenv for Python <br />
