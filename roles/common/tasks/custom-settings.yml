@@ -9,11 +9,13 @@
     - restart cron
 
 
+
 # Install OS packages 
 #--------------------
 - name: "install apt packages: {{ apt_packages_to_install | to_yaml }}"
   apt: name={{ item }} state=present
   with_items: "{{ apt_packages_to_install }}" 
+
 
 
 # Install python packages
@@ -24,6 +26,7 @@
   with_items: "{{ pip_packages_to_install }}"
 
 
+
 # Remove OS packages
 #-------------------
 - name: "remove apt packages: {{ apt_packages_to_uninstall | to_yaml }}"
@@ -31,12 +34,17 @@
   with_items: "{{ apt_packages_to_uninstall }}"
 
 
-# Run apt update cache
-#---------------------
+
+# Run OS package upgrade
+#-----------------------
 - name: update apt cache if it's 1 day old
   apt:
     update_cache: yes
     cache_valid_time: 86400 
+
+- name: run apt upgrade
+  apt: upgrade=safe
+
 
 
 # Customize ssh server config
@@ -46,7 +54,10 @@
     path: /etc/ssh/sshd_config
     state: present
     regexp: '^PermitRootLogin'
-    line: 'PermitRootLogin {{ permit_root_login_to }}'
+    line: 'PermitRootLogin no'
+  when: not permit_root_login_to
+  notify:
+    - restart ssh
   
 - name: "set allowed ssh users to: {{ allowed_ssh_users }}"
   lineinfile:
@@ -58,6 +69,7 @@
     - restart ssh
 
 
+
 # Set log rotation of ansible.log file
 #-------------------------------------
 - name: set log rotation of playbook exec log
@@ -66,6 +78,7 @@
     dest: /etc/logrotate.d 
   notify:
     - run logrotate
+
 
 
 # Customize bashrc file of 'pi' user
