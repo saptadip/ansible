@@ -1,6 +1,6 @@
 # Description
 The repository contains ansible codes for automatic setup of Raspberry Pi 3 on Raspbian OS. <br />
-<br />Things Done: <br />
+<br />Customization: <br />
 --------------<br />
 Install vi <br />
 Install git <br />
