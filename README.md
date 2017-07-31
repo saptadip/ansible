@@ -22,7 +22,7 @@ SSH config change: PermitRootLogin_NO, AllowUsers_pi <br />
 - Add target server names/IPs in the <i><b>"host"</i></b> file under the group <i><b>"[docker-nodes]"</i></b>
 - Run the playbook: <i><b>ansible-playbook rpi-setup-master-playbook.yml</i></b>
 
-# Tips & Trciks
+# Tips & Tricks
 - Most of the customization parameters are defined under <i>"ansible/group_vars/docker-nodes.yml"</i> file.
 - To install any additional OS package, add the package name under <b>apt_packages_to_install</b> variable.
 - To install any additional OS package, add the package name under <b>apt_packages_to_uninstall</b> variable.
