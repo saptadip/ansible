@@ -7,7 +7,7 @@ Install Python packages: virtualenv <br />
 Install OS Packages: vi, tree, docker, nodejs, locate, dnsutils, dos2unix, tightvnc-server <br />
 Reomve OS Packages: wolfram-engine <br />
 Set history command to display date time format <br />
-SSH config change: PermitRootLogin_NO, AllowUsers_pi <br />
+SSH config change: PermitRootLogin_NO, AllowUsers_pi
 
 # Pre-requisite:
 - Hardware: Raspberry Pi 3
