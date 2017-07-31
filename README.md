@@ -16,7 +16,7 @@ SSH config change: PermitRootLogin_NO, AllowUsers_pi <br />
 - Others: Stable internet connectivity
 
 # How it works:
-- With user "pi", create "projects" folder: <i><b> cd ~ && mkdir projects && cd projects </b></i>
+- Login to RPi with user "pi" and PUTTY, to create "projects" folder: <i><b> cd ~ && mkdir projects && cd projects </b></i>
 - Clone the git repository: <i><b> git clone https://github.com/saptadip/ansible.git </i></b>
 - Go inside "ansible" directory: <i><b> cd ansible </i></b>
 - Add target server names/IPs in the <i><b>"host"</i></b> file under the group <i><b>"[docker-nodes]"</i></b>
