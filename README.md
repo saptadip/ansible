@@ -29,4 +29,4 @@ SSH config change: PermitRootLogin_NO, AllowUsers_pi <br />
 - To install any additional Python package, add the package name under <b>pip_packages_to_install</b> variable.
 - To set a different timezone, change <b>local_timezone</b> variable.
 - To install different version of NodeJs, change value of <b>nodejs_version</b> variable.
-- To allow more users to connect through ssh to RPi, add the user name to <b>allowed_ssh_users</b> variable seperated by single space. Example: To allow three users with user name "user1", "user2" & "user3", set the variable to: </br><b>allowed_ssh_users user1 user2 user3</b>
+- To allow more users to connect through ssh to RPi, add the user name to <b>allowed_ssh_users</b> variable seperated by single space. Example: To allow three users with user name "user1", "user2" & "user3", set the variable to: </br><b>allowed_ssh_users: user1 user2 user3</b>
