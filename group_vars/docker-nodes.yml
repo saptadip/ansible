@@ -16,7 +16,6 @@ pip_packages_to_install:
 apt_packages_to_install:
   - dnsutils
   - vim
-  - git
   - tree
   - tightvncserver
   - locate
