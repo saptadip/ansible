@@ -2,19 +2,11 @@
 The repository contains ansible codes for automatic setup of Raspberry Pi 3 on Raspbian OS. <br />
 <br />Customization: <br />
 --------------<br />
-Install vi <br />
-Install git <br />
-Install tree <br />
-Install docker <br />
-Install nodejs <br />
-Install locate <br />
-Install dnsutils <br />
-Install dos2unix <br />
-Install tightvnc-server <br />
 Set local timezone to CEST <br />
-Install Virtualenv for Python <br />
+Install Python packages: Virtualenv <br />
+Install OS Packages: vi, git, tree, docker, nodejs, locate, dnsutils, dos2unix, tightvnc-server <br />
+Reomve OS Packages: wolfram-engine <br />
 Set history command to display date time format <br />
-Reomve wolfram-engine package to save disk space <br />
 SSH config change: PermitRootLogin_NO, AllowUsers_pi <br />
 <br />Things to Do: <br />
 --------------<br />
