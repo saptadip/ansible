@@ -25,7 +25,7 @@ SSH config change: PermitRootLogin_NO, AllowUsers_pi <br />
 # Tips & Tricks
 - Most of the customization parameters are defined under <i>"ansible/group_vars/docker-nodes.yml"</i> file.
 - To install any additional OS package, add the package name under <b>apt_packages_to_install</b> variable.
-- To install any additional OS package, add the package name under <b>apt_packages_to_uninstall</b> variable.
+- To uninstall any additional OS package, add the package name under <b>apt_packages_to_uninstall</b> variable.
 - To install any additional Python package, add the package name under <b>pip_packages_to_install</b> variable.
 - To set a different timezone, change <b>local_timezone</b> variable.
 - To install different version of NodeJs, change value of <b>nodejs_version</b> variable.
