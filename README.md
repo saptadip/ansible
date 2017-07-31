@@ -8,8 +8,6 @@ Install OS Packages: vi, git, tree, docker, nodejs, locate, dnsutils, dos2unix, 
 Reomve OS Packages: wolfram-engine <br />
 Set history command to display date time format <br />
 SSH config change: PermitRootLogin_NO, AllowUsers_pi <br />
-<br />Things to Do: <br />
---------------<br />
 
 # Pre-requisite:
 - Hardware: Raspberry Pi 3
