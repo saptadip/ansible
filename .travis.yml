@@ -36,13 +36,13 @@ script:
   - ansible-playbook docker-setup.yml --syntax-check    
 
   # Run the ansible-playbook to check 'common' ROLE
-  - ansible-playbook custom-setup.yml --connection=local -vvvv
+  - ansible-playbook custom-setup.yml --connection=local -v
 
   # Run the ansible-playbook to check 'nodejs' ROLE
-  - ansible-playbook nodejs-setup.yml --connection=local -vvvv
+  - ansible-playbook nodejs-setup.yml --connection=local -v
 
   # Run the ansible-playbook to check 'docker' ROLE
-  - ansible-playbook docker-setup.yml --connection=local -vvvv
+  #- ansible-playbook docker-setup.yml --connection=local -v
 
   
 
