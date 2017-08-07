@@ -47,4 +47,4 @@ script:
   
 
   # check LOCAL TIMEZONE is set to 'Europe/Amsterdam'
-  - cat /etc/timezone | grep -q "Europe/Amsterdam" && (echo "Timezone not set" && exit 1) || (echo "Timezone set to Europe-Amsterdam" && exit 0)
+  - cat /etc/timezone | grep "Europe/Amsterdam" &>/dev/null && (echo "Timezone set to Europe_Amsterdam" && exit 0) || (echo "Timezone not set" && exit 1)
