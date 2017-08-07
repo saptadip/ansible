@@ -60,21 +60,3 @@ script:
 
   # check LOCAL TIMEZONE is set to 'Europe/Amsterdam'
   - cat /etc/timezone | grep -q "Europe/Amsterdam" && (echo "Timezone not set" && exit 1) || (echo "Timezone set to Europe-Amsterdam" && exit 0)
-
-  # check 'dnsutils' OS PACKAGE is INSTALLED
-  - dpkg -l | grep "dnsutils" &>/dev/null && (echo "Package: dnsutils Status: Installed Check: PASSED" && exit 0) || (echo "Package: dnsutils Status: Not found Check: FAILED" && exit 1)
-
-  # check 'vim' OS PACKAGE is INSTALLED
-  - dpkg -l | grep "vim" &>/dev/null && (echo "Package: vim Status: Installed Check: PASSED" && exit 0) || (echo "Package: vim Status: Not found Check: FAILED" && exit 1)
-
-  # check 'tree' OS PACKAGE is INSTALLED
-  - dpkg -l | grep "tree" &>/dev/null && (echo "Package: tree Status: Installed Check: PASSED" && exit 0) || (echo "Package: tree Status: Not found Check: FAILED" && exit 1)
-
-  # check 'tightvncserver' OS PACKAGE is INSTALLED
-  - dpkg -l | grep "tightvncserver" &>/dev/null && (echo "Package: tightvncserver Status: Installed Check: PASSED" && exit 0) || (echo "Package: tightvncserver Status: Not found Check: FAILED" && exit 1)
-
-  # check 'locate' OS PACKAGE is INSTALLED
-  - dpkg -l | grep "locate" &>/dev/null && (echo "Package: locate Status: Installed Check: PASSED" && exit 0) || (echo "Package: locate Status: Not found Check: FAILED" && exit 1)
-
-  # check 'dos2unix' OS PACKAGE is INSTALLED
-  - dpkg -l | grep "dos2unix" &>/dev/null && (echo "Package: dnsutils Status: Installed Check: PASSED" && exit 0) || (echo "Package: dnsutils Status: Not found Check: FAILED" && exit 1)
