@@ -67,18 +67,6 @@
     - restart ssh
 
 
-
-# Set log rotation of ansible.log file
-#-------------------------------------
-- name: set log rotation of playbook exec log
-  copy:
-    src: ansible 
-    dest: /etc/logrotate.d 
-  notify:
-    - run logrotate
-
-
-
 # Customize bashrc file of 'pi' user
 #-----------------------------------
 # * Set history command to display date time format
