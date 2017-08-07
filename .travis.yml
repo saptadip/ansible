@@ -39,9 +39,9 @@ script:
   - ansible-playbook custom-setup.yml --connection=local -v
 
   # Run add apt_key before checking the 'nodejs' role
-  - ansible local -m apt_key -a "url=https://deb.nodesource.com/gpgkey/nodesource.gpg.key state=present" -i hosts --connection=local --become
+  #- ansible local -m apt_key -a "url=https://deb.nodesource.com/gpgkey/nodesource.gpg.key state=present" -i hosts --connection=local --become
   # Run the ansible-playbook to check 'nodejs' ROLE
-  - ansible-playbook nodejs-setup.yml --connection=local -v
+  #- ansible-playbook nodejs-setup.yml --connection=local -v
 
   # Run the ansible-playbook to check 'docker' ROLE
   #- ansible-playbook docker-setup.yml --connection=local -v
