@@ -32,6 +32,7 @@
 - name: "remove apt packages: {{ apt_packages_to_uninstall | to_yaml }}"
   apt: name={{ item }} state=absent purge=yes autoremove=yes
   with_items: "{{ apt_packages_to_uninstall }}"
+  tags: apt_update_cache
 
 
 
