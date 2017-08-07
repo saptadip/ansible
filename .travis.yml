@@ -13,7 +13,6 @@ env:
 
 before_install:
   - sudo apt-get update -qq
-  - sudo adduser -p test123 pi
 
 
 
