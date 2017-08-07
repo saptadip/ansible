@@ -15,13 +15,6 @@ env:
   - ANSIBLE_VERSION=2.0.0.2
 
 
-
-branches:
-  only:
-    - features/install-utilities
-
-
-
 before_install:
   - sudo apt-get update -qq
   - sudo adduser pi
