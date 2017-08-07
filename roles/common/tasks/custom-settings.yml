@@ -2,52 +2,70 @@
 
 # Set local timezone
 #-------------------
-- name: set timezone to CEST 
+- name: "set timezone to: {{ local_timezone }}"
   timezone:
-    name: Europe/Amsterdam
+    name: "{{ local_timezone }}"
   notify:
     - restart cron
 
 
-# Install OS utilities
-#---------------------
-- name: install dnsutils package
-  apt:
-    name: dnsutils
-    state: present
 
-- name: install vim package
-  apt:
-    name: vim
-    state: present
-
-- name: install git package
-  apt:
-    name: git
-    state: present
-
-- name: install tree package
-  apt:
-    name: tree
-    state: present
-
-
-# Remove OS utilities
+# Install OS packages 
 #--------------------
-- name: remove wolfram-engine package
-  apt:
-    name: wolfram-engine
-    state: absent	
-    purge: yes
-    autoremove: yes
+- name: "install apt packages: {{ apt_packages_to_install | to_yaml }}"
+  apt: name={{ item }} state=present
+  with_items: "{{ apt_packages_to_install }}" 
 
 
-# Run apt update cache
-#---------------------
-- name: only run "update_cache=yes" if the last one is more than 3600 seconds ago
+
+# Install python packages
+#------------------------
+- name: "install python packages: {{ pip_packages_to_install | to_yaml }}"
+  sudo: true
+  pip: name={{ item }}
+  with_items: "{{ pip_packages_to_install }}"
+
+
+
+# Remove OS packages
+#-------------------
+- name: "remove apt packages: {{ apt_packages_to_uninstall | to_yaml }}"
+  apt: name={{ item }} state=absent purge=yes autoremove=yes
+  with_items: "{{ apt_packages_to_uninstall }}"
+
+
+
+# Run OS package upgrade
+#-----------------------
+- name: update apt cache when older than 1 day
   apt:
+    upgrade: dist
     update_cache: yes
-    cache_valid_time: 3600
+    cache_valid_time: 86400 
+
+
+
+# Customize ssh server config
+#----------------------------
+- name: "set root login to: {{ permit_root_login_to }}"
+  lineinfile:
+    path: /etc/ssh/sshd_config
+    state: present
+    regexp: '^PermitRootLogin'
+    line: 'PermitRootLogin no'
+  when: not permit_root_login_to
+  notify:
+    - restart ssh
+  
+- name: "set allowed ssh users to: {{ allowed_ssh_users }}"
+  lineinfile:
+    path: /etc/ssh/sshd_config
+    state: present
+    regexp: '^AllowUsers'
+    line: 'AllowUsers {{ allowed_ssh_users }}'
+  notify:
+    - restart ssh
+
 
 
 # Set log rotation of ansible.log file
@@ -58,6 +76,7 @@
     dest: /etc/logrotate.d 
   notify:
     - run logrotate
+
 
 
 # Customize bashrc file of 'pi' user

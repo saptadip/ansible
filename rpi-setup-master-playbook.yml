@@ -1,0 +1,14 @@
+---
+
+- include: custom-setup.yml
+- include: nodejs-setup.yml
+- include: docker-setup.yml
+
+- name: reboot pi after installation
+
+  hosts: docker-nodes 
+  remote_user: pi
+  become: true
+  become_method: sudo
+  roles:
+    - reboot

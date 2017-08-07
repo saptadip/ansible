@@ -1,3 +1,38 @@
 ---
 
-nodejs_version: 7
+# General variables
+#------------------
+local_timezone: "Europe/Amsterdam"
+
+
+# Python packages to install
+#---------------------------
+pip_packages_to_install:
+  - virtualenv
+
+
+# OS packages to install with apt
+#--------------------------------
+apt_packages_to_install:
+  - dnsutils
+  - vim
+  - tree
+  - tightvncserver
+  - locate
+  - dos2unix
+
+# OS packages to uninstall
+#-------------------------
+apt_packages_to_uninstall:
+  - wolfram-engine
+
+
+# SSH server config parameters
+#-----------------------------
+permit_root_login_to: no
+allowed_ssh_users: pi
+
+
+# Install software versions
+#--------------------------
+nodejs_version: 7 
