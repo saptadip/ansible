@@ -3,7 +3,7 @@
 - name: Setup Common Config 
 
   hosts: docker-nodes 
-  remote_user: pi
+remote_user: pi
   become: true
   become_method: sudo
   roles:
