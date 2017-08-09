@@ -17,6 +17,7 @@ before_install:
   - sudo apt-get update -qq
   - sudo docker pull resin/rpi-raspbian
   - sudo docker run -it -d --name raspbianStage resin/rpi-raspbian /bin/bash
+  - sudo docker ps -a
   - sudo docker exec -it raspbianStage apt-get install git ansible -y
   - sudo docker exec -it raspbianStage git --version; ansible --version
   - sudo docker exec -it raspbianStage git clone http://github.com/ansible/ansible.git /tmp/ansible
