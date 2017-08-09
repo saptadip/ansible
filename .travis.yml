@@ -9,64 +9,24 @@ branches:
     - dev
 
 
-env:
+services:
+  - docker
 
-  - ANSIBLE_VERSION=latest
 
 before_install:
   - sudo apt-get update -qq
-
-
-install:
-
-  # Install Ansible.
-  - if [ "$ANSIBLE_VERSION" = "latest" ]; then pip install ansible; else pip install ansible==$ANSIBLE_VERSION; fi
-  - if [ "$ANSIBLE_VERSION" = "latest" ]; then pip install ansible-lint; fi
+  - sudo docker pull resin/rpi-raspbian
+  - sudo docker run -it -d -name raspbianStage resin/rpi-raspbian /bin/bash
+  - sudo docker exec -it raspbianStage apt-get install git ansible -y
+  - sudo docker exec -it raspbianStage git --version; ansible --version
+  - sudo docker exec -it raspbianStage git clone http://github.com/ansible/ansible.git /tmp/ansible
+  - sudo docker exec -it raspbianStage git clone https://github.com/saptadip/ansible.git /tmp/testRepo
 
 
 
 script:
 
-  # Check the 'common' role SYNTAX in playbook
-  - ansible-playbook custom-setup.yml --syntax-check
-
-  # Check the 'nodejs' role SYNTAX in playbook
-  - ansible-playbook nodejs-setup.yml --syntax-check  
-
-  # Check the 'docker' role SYNTAX in playbook
-  - ansible-playbook docker-setup.yml --syntax-check    
-
-  # Run the ansible-playbook to check 'common' ROLE
-  - ansible-playbook custom-setup.yml --skip-tags "apt_update_cache" --connection=local -v
-
-  # Run add apt_key before checking the 'nodejs' role
-  #- ansible local -m apt_key -a "url=https://deb.nodesource.com/gpgkey/nodesource.gpg.key state=present" -i hosts --connection=local --become
-  # Run the ansible-playbook to check 'nodejs' ROLE
-  #- ansible-playbook nodejs-setup.yml --connection=local -v
-
-  # Run the ansible-playbook to check 'docker' ROLE
-  #- ansible-playbook docker-setup.yml --connection=local -v
-
-
-
-  # check LOCAL TIMEZONE is set to 'Europe/Amsterdam'
-  - cat /etc/timezone | grep "Europe/Amsterdam" &>/dev/null && (echo "Timezone set to Europe_Amsterdam" && exit 0) || (echo "Timezone not set" && exit 1)
-
-  # check 'dnsutils' OS PACKAGE is INSTALLED
-  - dpkg -l | grep "dnsutils" &>/dev/null && (echo "Package-> dnsutils Status-> Installed Check-> PASSED..." && exit 0) || (echo "Package-> dnsutils Status-> Not found Check-> FAILED!!!" && exit 1)
-
-  # check 'vim' OS PACKAGE is INSTALLED
-  - dpkg -l | grep "vim" &>/dev/null && (echo "Package-> vim Status-> Installed Check-> PASSED..." && exit 0) || (echo "Package-> vim Status-> Not found Check-> FAILED!!!" && exit 1)
-
-  # check 'tree' OS PACKAGE is INSTALLED
-  - dpkg -l | grep "tree" &>/dev/null && (echo "Package-> tree Status-> Installed Check-> PASSED..." && exit 0) || (echo "Package-> tree Status-> Not found Check-> FAILED!!!" && exit 1)
-
-  # check 'tightvncserver' OS PACKAGE is INSTALLED
-  - dpkg -l | grep "tightvncserver" &>/dev/null && (echo "Package-> tightvncserver Status-> Installed Check-> PASSED..." && exit 0) || (echo "Package-> tightvncserver Status-> Not found Check-> FAILED!!!" && exit 1)
-
-  # check 'locate' OS PACKAGE is INSTALLED
-  - dpkg -l | grep "locate" &>/dev/null && (echo "Package-> locate Status-> Installed Check-> PASSED..." && exit 0) || (echo "Package-> locate Status-> Not found Check-> FAILED!!!" && exit 1)
-
-  # check 'dos2unix' OS PACKAGE is INSTALLED
-  - dpkg -l | grep "dos2unix" &>/dev/null && (echo "Package-> dnsutils Status-> Installed Check-> PASSED..." && exit 0) || (echo "Package-> dnsutils Status-> Not found Check-> FAILED!!!" && exit 1)
-  
+  - sudo docker exec -it raspbianStage cd /tmp/testRepo; ansible-playbook /tmp/testRepo/custom-setup.yml --syntax-check
+  - sudo docker exec -it raspbianStage cd /tmp/testRepo; ansible-playbook /tmp/testRepo/nodejs-setup.yml --syntax-check  
+  - sudo docker exec -it raspbianStage cd /tmp/testRepo; ansible-playbook /tmp/testRepo/docker-setup.yml --syntax-check    
+  - sudo docker exec -it raspbianStage cd /tmp/testRepo; ansible-playbook /tmp/testRepo/custom-setup.yml --skip-tags "apt_update_cache" --connection=local -v
