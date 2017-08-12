@@ -16,18 +16,4 @@ services:
 before_install:
   - sudo apt-get update -qq
   - sudo docker pull resin/rpi-raspbian
-  - sudo docker run -dt --name raspbianStage resin/rpi-raspbian tail -f /dev/null
-  - sudo docker ps -a
-  - sudo docker exec -it raspbianStage apt-get install git ansible -y
-  - sudo docker exec -it raspbianStage git --version; ansible --version
-  - sudo docker exec -it raspbianStage git clone http://github.com/ansible/ansible.git /tmp/ansible
-  - sudo docker exec -it raspbianStage git clone https://github.com/saptadip/ansible.git /tmp/testRepo
-
-
-
-script:
-
-  - sudo docker exec -it raspbianStage cd /tmp/testRepo; ansible-playbook /tmp/testRepo/custom-setup.yml --syntax-check
-  - sudo docker exec -it raspbianStage cd /tmp/testRepo; ansible-playbook /tmp/testRepo/nodejs-setup.yml --syntax-check  
-  - sudo docker exec -it raspbianStage cd /tmp/testRepo; ansible-playbook /tmp/testRepo/docker-setup.yml --syntax-check    
-  - sudo docker exec -it raspbianStage cd /tmp/testRepo; ansible-playbook /tmp/testRepo/custom-setup.yml --skip-tags "apt_update_cache" --connection=local -v
+  - sudo docker run -dt --name raspbianStage resin/rpi-raspbian tail -f /bin/bash apt-get install git ansible -y && git clone http://github.com/ansible/ansible.git /tmp/ansible && git clone https://github.com/saptadip/ansible.git /tmp/testRepo && cd /tmp/testRepo && ansible-playbook /tmp/testRepo/custom-setup.yml --syntax-check
