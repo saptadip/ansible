@@ -15,4 +15,4 @@ services:
 
 before_install:
   - sudo docker pull williamyeh/ansible:debian8
-  - sudo docker run -dt williamyeh/ansible:debian8 /bin/bash mkdir /tmp/repo && git clone https://github.com/saptadip/ansible.git /tmp/testRepo && cd /tmp/testRepo && ansible-playbook custom-setup.yml --syntax-check
+  - sudo docker run -dt williamyeh/ansible:debian8 /bin/bash mkdir /tmp/repo && git clone https://github.com/saptadip/ansible.git /tmp/testRepo && cd /tmp/testRepo && /etc/ansible/bin/ansible-playbook custom-setup.yml --syntax-check
