@@ -1,5 +1,6 @@
 FROM debian
 
+RUN apt-get install -y python-setuptools
 RUN easy_install pip
 RUN pip install ansible
 RUN apt-get install -y git
