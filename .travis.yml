@@ -16,5 +16,4 @@ services:
 before_install:
   - sudo apt-get update -qq
   - sudo docker pull saptadip/raspbian_base
-  - sudo docker run --name ansible -d -it saptadip/raspbian_base
-  - docker exec -it ansible git clone https://github.com/saptadip/ansible.git /tmp/testRepo && ansible-playbook /tmp/testRepo/custom-setup.yml --syntax-check
+  - sudo docker run saptadip/raspbian_base /bin/bash -c "git clone https://github.com/saptadip/ansible.git /tmp/testRepo && ansible-playbook /tmp/testRepo/custom-setup.yml --syntax-check"
