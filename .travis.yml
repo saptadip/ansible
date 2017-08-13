@@ -15,5 +15,5 @@ services:
 
 before_install:
   - sudo apt-get update -qq
-  - sudo docker pull resin/rpi-raspbian
-  - sudo docker run -dt --name raspbianStage resin/rpi-raspbian /bin/bash sudo apt-get install ansible -y && ansible --version && git clone https://github.com/saptadip/ansible.git /tmp/testRepo && cd /tmp/testRepo && ansible-playbook custom-setup.yml --syntax-check
+  - sudo docker pull saptadip/raspbian_base
+  - sudo docker run -dt --name raspbianStage saptadip/raspbian_base /bin/bash sudo apt-get install ansible -y && ansible --version && git clone https://github.com/saptadip/ansible.git /tmp/testRepo && cd /tmp/testRepo && ansible-playbook custom-setup.yml --syntax-check
